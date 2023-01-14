@@ -841,12 +841,14 @@ def package_webrtc(source_dir, build_dir, package_dir, target,
                 dirs.append(os.path.join(webrtc_build_dir, device, arch))
     else:
         dirs = [webrtc_build_dir]
-    ts = []
-    for t in get_build_targets(target):
-        ts += ['--target', t]
-    cmd(['python3', os.path.join(webrtc_src_dir, 'tools_webrtc', 'libs', 'generate_licenses.py'),
-        *ts, webrtc_package_dir, *dirs])
-    os.rename(os.path.join(webrtc_package_dir, 'LICENSE.md'), os.path.join(webrtc_package_dir, 'NOTICE'))
+    
+    # TODO fixing generate_licenses error
+    # ts = ['--verbose', True]
+    # for t in get_build_targets(target):
+    #     ts += ['--target', t]
+    # cmd(['python3', os.path.join(webrtc_src_dir, 'tools_webrtc', 'libs', 'generate_licenses.py'),
+    #     *ts, webrtc_package_dir, *dirs])
+    # os.rename(os.path.join(webrtc_package_dir, 'LICENSE.md'), os.path.join(webrtc_package_dir, 'NOTICE'))
 
     # ヘッダーファイルをコピー
     # Copy headers
