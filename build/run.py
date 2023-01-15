@@ -841,7 +841,7 @@ def package_webrtc(source_dir, build_dir, package_dir, target,
                 dirs.append(os.path.join(webrtc_build_dir, device, arch))
     else:
         dirs = [webrtc_build_dir]
-    ts = []
+    ts = ['--verbose', True]
     for t in get_build_targets(target):
         ts += ['--target', t]
     cmd(['python3', os.path.join(webrtc_src_dir, 'tools_webrtc', 'libs', 'generate_licenses.py'),
